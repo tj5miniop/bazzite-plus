@@ -25,7 +25,7 @@ dnf5 install -y obs-studio mangohud
 wget -O kernel.tar.gz https://github.com/tj5miniop/linux-tkg/releases/download/kinoiteplus/kernel.tar.gz
 tar -xvf ./kernel.tar.gz
 cd kernel
-sudo dnf install --allowerasing --allowdowngrade ./*.rpm
+sudo dnf install --allowerasing ./*.rpm
 
 
 
