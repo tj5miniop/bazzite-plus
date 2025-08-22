@@ -10,7 +10,26 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y tmux 
+
+
+#Install base apps/utilities
+dnf5 install -y fastfetch nano wget curl git fzf zsh flatpak
+
+#Install Apps for Content Creation - EG - OBS Studio, Discord etc
+dnf5 install -y obs-studio mangohud
+
+# Remove random KDE stuff - NOT NEEDED AS THESE ARE INSTALLED AS FLATPAKS
+#dnf5 -y remove okular kmines kwrite kcalc elisa kmahjongg gwenview 
+
+# Install Custom Kernel 
+cd /tmp && mkdir kernel-install
+cd kernel-install
+wget -O kernel.tar.gz https://github.com/tj5miniop/linux-tkg/releases/download/kinoiteplus/kernel.tar.gz
+tar -xvf ./kernel.tar.gz
+cd kernel
+sudo dnf install --allowerasing --allowdowngrade ./*.rpm
+
+
 
 # Use a COPR Example:
 #
