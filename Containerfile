@@ -2,8 +2,8 @@
 FROM scratch AS ctx
 COPY build_files /
 
-# Base Image
-FROM ghcr.io/ublue-os/bazzite:stable
+# Base Image - Currently Fedora Kinoite 42
+FROM ghcr.io/ublue-os/kinoite:42
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
