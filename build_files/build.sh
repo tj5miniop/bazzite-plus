@@ -26,18 +26,22 @@ dnf5 install -y obs-studio mangohud
 sudo setsebool -P domain_kernel_load_modules on
 
 # Install Custom Kernel 
-dnf5 -y remove --no-autoremove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-tools kernel-tools-libs kernel-uki-virt
+#dnf5 -y remove --no-autoremove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-tools kernel-tools-libs kernel-uki-virt
 dnf5 -y clean all
-dnf5 -y copr enable bieszczaders/kernel-cachyos
-dnf5 -y install kernel-cachyos kernel-cachyos-devel-matched
+d
+#Kernel CachyOS
+#dnf5 -y copr enable whitehara/kernel-cachyos-preempt
+#dnf5 -y install kernel 
 
-#Regenerate Kernel Modules 
-dracut --regenerate-all --force
+# Kernel Blu (Default)
+dnf5 -y copr enable sentry/kernel-blu
+dnf5 -y update --refresh
+
 
 # Install Gaming-Related Stuff
 #Mesa-git 
 dnf5 -y copr enable danayer/mesa-git 
-dn55 -y update
+dnf5 -y update
 dnf5 -y copr disable danayer/mesa-git
 
 # Use a COPR Example:
