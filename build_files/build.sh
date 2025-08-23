@@ -28,7 +28,6 @@ sudo setsebool -P domain_kernel_load_modules on
 # Install Custom Kernel 
 #dnf5 -y remove --no-autoremove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-tools kernel-tools-libs kernel-uki-virt
 dnf5 -y clean all
-d
 #Kernel CachyOS
 #dnf5 -y copr enable whitehara/kernel-cachyos-preempt
 #dnf5 -y install kernel 
