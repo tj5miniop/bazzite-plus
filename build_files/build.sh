@@ -22,6 +22,8 @@ dnf5 install -y obs-studio mangohud
 #dnf5 -y remove okular kmines kwrite kcalc elisa kmahjongg gwenview 
 
 # Install Custom Kernel 
+
+dnf5 -y remove --no-autoremove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-tools kernel-tools-libs kernel-uki-virt
 wget -O kernel.tar.gz https://github.com/tj5miniop/linux-tkg/releases/download/kinoiteplus/kernel.tar.gz
 tar -xvf ./kernel.tar.gz
 cd kernel
