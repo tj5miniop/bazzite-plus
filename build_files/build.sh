@@ -28,6 +28,7 @@ wget -O kernel.tar.gz https://github.com/tj5miniop/linux-tkg/releases/download/k
 tar -xvf ./kernel.tar.gz
 cd kernel
 dnf5 -y install --allowerasing ./*.rpm
+sudo depmod -a
 
 
 
