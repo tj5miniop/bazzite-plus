@@ -22,15 +22,14 @@ dnf5 install -y obs-studio mangohud
 # Remove random KDE stuff - NOT NEEDED AS THESE ARE INSTALLED AS FLATPAKS
 #dnf5 -y remove okular kmines kwrite kcalc elisa kmahjongg gwenview 
 
-# Install Custom Kernel 
+# SELinux Configuration
+sudo setsebool -P domain_kernel_load_modules on
 
+# Install Custom Kernel 
 dnf5 -y remove --no-autoremove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-tools kernel-tools-libs kernel-uki-virt
-sudo dnf5 -y clean all
-wget -O kernel.tar.gz https://github.com/tj5miniop/linux-tkg/releases/download/kinoiteplus/kernel.tar.gz
-tar -xvf ./kernel.tar.gz
-cd kernel
-dnf5 -y install --allowerasing ./*.rpm
-cd ../ && rm -rf kernel 
+dnf5 -y clean all
+dnf5 -y copr enable bieszczaders/kernel-cachyos
+dnf5 -y install kernel-cachyos kernel-cachyos-devel-matched
 
 #Regenerate Kernel Modules 
 dracut --regenerate-all --force
