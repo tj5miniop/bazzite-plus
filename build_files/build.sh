@@ -10,6 +10,29 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 
+
+# NOTICE - Kernel installation will be moved to a separate script/Containerfile - as of 08/06/25 - trying this now in build.sh - Note, kernel installation appears to be working
+dnf5 -y config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-rar.repo
+dnf5 -y config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-steam.repo --overwrite
+dnf5 -y config-manager setopt "*fedora*".exclude="mesa-* kernel-core-* kernel-modules-* kernel-uki-virt-*"
+
+sudo rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-cachyos
+
+
+#Remove firefox - Users can install their own browser
+dnf5 -y remove firefox
+
+#Install CachyOS optimisations
+dnf5 -y copr enable bieszczaders/kernel-cachyos-addons
+dnf5 -y update
+dnf5 -y install libcap-ng libcap-ng-devel procps-ng procps-ng-devel
+dnf5 -y install cachyos-settings scx-scheds uksmd --allowerasing
+dnf5 -y copr disable bieszczaders/kernel-cachyos-addons
+dnf5 -y clean all
+
+# Add SELinux override to install kernel
+setsebool -P domain_kernel_load_modules on
+
 #Update Fedora
 dnf5 -y update
 
@@ -21,21 +44,6 @@ dnf5 install -y obs-studio mangohud
 
 # Remove random KDE stuff - NOT NEEDED AS THESE ARE INSTALLED AS FLATPAKS
 #dnf5 -y remove okular kmines kwrite kcalc elisa kmahjongg gwenview 
-
-# SELinux Configuration
-sudo setsebool -P domain_kernel_load_modules on
-
-# Install Custom Kernel 
-#dnf5 -y remove --no-autoremove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra kernel-tools kernel-tools-libs kernel-uki-virt
-dnf5 -y clean all
-#Kernel CachyOS
-#dnf5 -y copr enable whitehara/kernel-cachyos-preempt
-#dnf5 -y install kernel 
-
-# Kernel Blu (Default)
-dnf5 -y copr enable sentry/kernel-blu
-dnf5 -y update --refresh
-
 
 # Install Gaming-Related Stuff
 #Mesa-git 
