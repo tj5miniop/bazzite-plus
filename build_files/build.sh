@@ -9,8 +9,9 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
-# this installs a package from fedora repos
 
+#Update Fedora
+dnf5 -y update
 
 #Install base apps/utilities
 dnf5 install -y fastfetch nano wget curl git fzf zsh flatpak
@@ -29,11 +30,16 @@ wget -O kernel.tar.gz https://github.com/tj5miniop/linux-tkg/releases/download/k
 tar -xvf ./kernel.tar.gz
 cd kernel
 dnf5 -y install --allowerasing ./*.rpm
+cd ../ && rm -rf kernel 
 
 #Regenerate Kernel Modules 
 dracut --regenerate-all --force
 
-
+# Install Gaming-Related Stuff
+#Mesa-git 
+dnf5 -y copr enable danayer/mesa-git 
+dn55 -y update
+dnf5 -y copr disable danayer/mesa-git
 
 # Use a COPR Example:
 #
