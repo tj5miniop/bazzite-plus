@@ -16,9 +16,6 @@ dnf5 -y config-manager addrepo --from-repofile=https://negativo17.org/repos/fedo
 dnf5 -y config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-steam.repo --overwrite
 dnf5 -y config-manager setopt "*fedora*".exclude="mesa-* kernel-core-* kernel-modules-* kernel-uki-virt-*"
 
-sudo rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-cachyos
-
-
 #Remove firefox - Users can install their own browser
 dnf5 -y remove firefox
 
@@ -33,8 +30,15 @@ dnf5 -y clean all
 # Add SELinux override to install kernel
 setsebool -P domain_kernel_load_modules on
 
+
+dnf5 -y copr enable gloriouseggroll/nobara-42
+
+
 #Update Fedora
 dnf5 -y update
+
+dnf5 -y copr disable gloriouseggroll/nobara-42
+
 
 #Install base apps/utilities
 dnf5 install -y fastfetch nano wget curl git fzf zsh flatpak
