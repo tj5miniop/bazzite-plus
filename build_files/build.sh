@@ -32,7 +32,7 @@ setsebool -P domain_kernel_load_modules on
 
 
 dnf5 -y copr enable gloriouseggroll/nobara-42
-dnf5 -y upgrade kernel* --disablerepo=\* --enablerepo=nobara-42
+dnf5 -y upgrade kernel* 
 dnf5 -y copr disable gloriouseggroll/nobara-42
 
 
