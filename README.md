@@ -1,10 +1,6 @@
-# Kinoiteplus - A Fedora Atomic OS image based on Fedora Kinoite, which provides added extras to Fedora Kinoite while keeping everything else stock.
+# Bazzite Plus
 
-# The Current Plan - Include Nobara Kernel & CachyOS optimisations
+## A tweaked Bazzite Experience (currently) for Nvidia (1600 series +) users
 
-# future plans - 
 
- - steam
-- heroic games launcher 
-- blender (native package) 
-- flatpost appstore/ bazzar 
+##### This variant of bazzite is based on the :latest branch, however, between Major Fedora Releases, it will be rebased to the most STABLE VERSION OF FEDORA UPSTREAM
