@@ -12,12 +12,12 @@ set -ouex pipefail
 
 
 # NOTICE - Kernel installation will be moved to a separate script/Containerfile - as of 08/06/25 - trying this now in build.sh - Note, kernel installation appears to be working
-dnf5 -y config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-rar.repo
-dnf5 -y config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-steam.repo --overwrite
-dnf5 -y config-manager setopt "*fedora*".exclude="mesa-* kernel-core-* kernel-modules-* kernel-uki-virt-*"
+#dnf5 -y config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-rar.repo
+#dnf5 -y config-manager addrepo --from-repofile=https://negativo17.org/repos/fedora-steam.repo --overwrite
+#dnf5 -y config-manager setopt "*fedora*".exclude="mesa-* kernel-core-* kernel-modules-* kernel-uki-virt-*"
 
 #Remove firefox - Users can install their own browser
-dnf5 -y remove firefox
+#dnf5 -y remove firefox
 
 #Install CachyOS optimisations
 dnf5 -y copr enable bieszczaders/kernel-cachyos-addons
