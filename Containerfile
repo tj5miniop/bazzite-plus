@@ -2,8 +2,8 @@
 FROM scratch AS ctx
 COPY build_files /
 
-# Base Image - Currently Fedora Kinoite 42
-FROM ghcr.io/ublue-os/kinoite-main:42
+# Base Image - Currently Bazzite:Latest
+FROM ghcr.io/ublue-os/bazzite-nvidia-open:latest
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
