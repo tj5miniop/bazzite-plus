@@ -39,12 +39,6 @@ dnf5 install -y obs-studio mangohud
 # Remove random KDE stuff - NOT NEEDED AS THESE ARE INSTALLED AS FLATPAKS
 #dnf5 -y remove okular kmines kwrite kcalc elisa kmahjongg gwenview 
 
-# Install Gaming-Related Stuff
-#Mesa-git 
-dnf5 -y copr enable danayer/mesa-git 
-dnf5 -y update
-dnf5 -y copr disable danayer/mesa-git
-
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
