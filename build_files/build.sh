@@ -46,19 +46,14 @@ dnf5 -y remove webapp-manager fish btop p7zip p7zip-plugins rar cockpit-networkm
 flatpak uninstall --all 
 dnf5 -y clean all
 
-
-
-
-
-
-#flatpak -y install flathub com.vysp3r.ProtonPlus --system 
-#flatpak -y install flathub com.usebottles.bottles --system
-#flatpak -y install flathub com.github.tchx84.Flatseal --system
-#flatpak -y install flathub com.ranfdev.DistroShelf --system
-#flatpak -y install flathub io.github.Foldex.AdwSteamGtk --system 
-#flatpak -y install flathub com.brave.Browser --system
+flatpak -y install flathub com.vysp3r.ProtonPlus --system 
+flatpak -y install flathub com.usebottles.bottles --system
+flatpak -y install flathub com.github.tchx84.Flatseal --system
+flatpak -y install flathub com.ranfdev.DistroShelf --system
+flatpak -y install flathub io.github.Foldex.AdwSteamGtk --system 
+flatpak -y install flathub com.brave.Browser --system
 # Clean Flatpak Dependencies
-#flatpak -y uninstall --unused --system
+flatpak -y uninstall --unused --system
 
 
 # Set KDE Defaults 
