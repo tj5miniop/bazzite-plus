@@ -42,6 +42,22 @@ dnf5 install -y obs-studio mangohud
 dnf5 -y remove webapp-manager fish btop p7zip p7zip-plugins rar cockpit-networkmanager cockpit-podman cockpit-selinux cockpit-system cockpit-navigator cockpit-storaged btrfs-assistant waydroid cage lutris steamdeck-kde-presets-desktop wallpaper-engine-kde-plugin
 
 
+# Flatpak Uninstallation & Configuration - 
+flatpak uninstall --all 
+dnf5 -y clean all
+flatpak install flathub com.vysp3r.ProtonPlus --system 
+flatpak install flathub com.usebottles.bottles --system
+flatpak install flathub com.github.tchx84.Flatseal --system
+flatpak install flathub com.ranfdev.DistroShelf --system
+flatpak install flathub io.github.Foldex.AdwSteamGtk --system 
+flatpak install flathub com.brave.Browser --system
+# Clean Flatpak Dependencies
+flatpak uninstall --unused --system
+
+
+# Set KDE Defaults 
+
+
 
 # Enable Systemd Units
 systemctl enable podman.socket
