@@ -36,16 +36,12 @@ dnf5 install -y fastfetch nano wget curl git fzf zsh flatpak
 #Install Apps for Content Creation - EG - OBS Studio, Discord etc
 dnf5 install -y obs-studio mangohud
 
-# Remove random KDE stuff - NOT NEEDED AS THESE ARE INSTALLED AS FLATPAKS
-#dnf5 -y remove okular kmines kwrite kcalc elisa kmahjongg gwenview 
 
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
 
-#### Example for enabling a System Unit File
+# Remove Bazzite Apps which I don't use 
+dnf5 -y remove webapp-manager fish btop p7zip p7zip-plugins rar cockpit-networkmanager cockpit-podman cockpit-selinux cockpit-system cockpit-navigator cockpit-storaged btrfs-assistant waydroid cage lutris steamdeck-kde-presets-desktop wallpaper-engine-kde-plugin
 
+
+
+# Enable Systemd Units
 systemctl enable podman.socket
